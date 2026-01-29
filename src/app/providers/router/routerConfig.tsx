@@ -1,5 +1,5 @@
 //* router
-import { createHashRouter, redirect } from "react-router";
+import { createHashRouter, Navigate } from "react-router";
 //* pages
 import { RequestsListPage } from "pages/RequestsListPage";
 import { CreateRequestPage } from "pages/CreateRequestPage";
@@ -8,7 +8,7 @@ import { RequestDetailsPage } from "pages/RequestDetailsPage";
 export const router = createHashRouter([
   {
     path: "/",
-    loader: () => redirect("/requests"),
+    element: <Navigate to="/requests" replace />,
   },
   {
     path: "/requests",
