@@ -14,8 +14,7 @@
       "/widgets/*": ["/widgets/*"],
       "/features/*": ["/features/*"],
       "/entities/*": ["/entities/*"],
-      "/shared/*": ["/shared/*"],
-      "/types/*": ["/types/*"]
+      "/shared/*": ["/shared/*"]
     },
 
     /* Bundler mode */
