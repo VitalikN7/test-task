@@ -17,7 +17,6 @@ export default defineConfig({
       features: "/src/features",
       entities: "/src/entities",
       shared: "/src/shared",
-      types: "/src/types",
     },
   },
 });

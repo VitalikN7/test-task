@@ -1,11 +1,25 @@
 //* router
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, redirect } from "react-router";
 //* pages
-import { Home } from "pages/Home";
+import { RequestsListPage } from "pages/RequestsListPage";
+import { CreateRequestPage } from "pages/CreateRequestPage";
+import { RequestDetailsPage } from "pages/RequestDetailsPage";
 //* все роуты приложения
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    loader: () => redirect("/requests"),
+  },
+  {
+    path: "/requests",
+    element: <RequestsListPage />,
+  },
+  {
+    path: "/requests/new",
+    element: <CreateRequestPage />,
+  },
+  {
+    path: "requests/:id",
+    element: <RequestDetailsPage />,
   },
 ]);

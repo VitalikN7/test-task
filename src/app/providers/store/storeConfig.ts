@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { applicationsReducer } from "entities/applicationsSlice";
+import { requestReducer } from "entities/request/model";
 
 export const setupStore = () =>
   configureStore({
     reducer: {
-      applications: applicationsReducer,
+      requests: requestReducer,
     },
   });
 
