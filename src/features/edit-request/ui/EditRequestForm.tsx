@@ -1,18 +1,17 @@
 // react
 import React from "react";
 import { useState } from "react";
-// entities and types
-import { RequestCategory } from "entities/request";
-import type { FormData } from "entities/request";
+// features
+import { RequestFormFields } from "features/request-form/ui/RequestFormFields";
 // shared/ui
 import { Button } from "shared/ui/Button/Button";
-import { Input, Textarea } from "shared/ui/Input/Input";
 // model
 import { useEditRequest } from "../model/useEditRequest";
 // lib
 import { validateForm } from "shared/lib/validationRequest";
 // types
 import type { Request } from "entities/request";
+import type { FormData } from "entities/request";
 // styles
 import styles from "./EditRequestForm.module.css";
 
@@ -58,52 +57,12 @@ export const EditRequestForm = ({
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <Input
-        label="Название заявки"
-        value={formData.title}
-        onChange={(e) => {
-          setFormData((prev) => ({ ...prev, title: e.target.value }));
-          if (errors.title) setErrors((prev) => ({ ...prev, title: undefined }));
-        }}
-        placeholder="Введите название"
-        isRequired
-        error={errors.title}
+      <RequestFormFields
+        formData={formData}
+        setFormData={setFormData}
+        errors={errors}
+        setErrors={setErrors}
       />
-
-      <Textarea
-        label="Описание"
-        value={formData.description}
-        onChange={(e) => {
-          setFormData((prev) => ({ ...prev, description: e.target.value }));
-          if (errors.description)
-            setErrors((prev) => ({ ...prev, description: undefined }));
-        }}
-        placeholder="Введите описание"
-        rows={4}
-        isRequired
-        error={errors.description}
-      />
-
-      <div className={styles.field}>
-        <label htmlFor="category" className={styles.label}>
-          Категория
-        </label>
-        <select
-          id="category"
-          value={formData.category}
-          onChange={(e) =>
-            setFormData((prev) => ({
-              ...prev,
-              category: e.target.value as RequestCategory,
-            }))
-          }
-          className={styles.select}>
-          <option value={RequestCategory.General}>Общие вопросы</option>
-          <option value={RequestCategory.Incident}>Инцидент</option>
-          <option value={RequestCategory.Complaint}>Жалоба</option>
-          <option value={RequestCategory.Support}>Поддержка</option>
-        </select>
-      </div>
 
       <div className={styles.actions}>
         {onCancel && (

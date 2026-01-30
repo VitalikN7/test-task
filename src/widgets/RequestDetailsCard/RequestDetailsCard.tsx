@@ -25,6 +25,7 @@ export const RequestDetailsCard = () => {
 
   return (
     <div className={styles.card_container}>
+      <h2 className={styles.main_title}>Подробнее о заявке</h2>
       <div className={styles.inner_card_container}>
         <div className={styles.header}>
           <h3 className={styles.title}>{`Название ${request?.title}`}</h3>

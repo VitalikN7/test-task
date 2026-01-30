@@ -1,8 +1,20 @@
 export const RequestCategory = {
-  General: "general",
-  Incident: "incident",
-  Complaint: "сomplaint",
-  Support: "support",
+  General: {
+    value: "general",
+    label: "Общий вопрос",
+  },
+  Incident: {
+    value: "incident",
+    label: "Инцидент",
+  },
+  Complaint: {
+    value: "complaint",
+    label: "Жалоба",
+  },
+  Support: {
+    value: "support",
+    label: "Поддержка",
+  },
 } as const;
 
 export type RequestCategory = (typeof RequestCategory)[keyof typeof RequestCategory];

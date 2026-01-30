@@ -7,7 +7,7 @@ import type { Request } from "entities/request";
 export const useCreateRequest = () => {
   const dispatch = useAppDispatch();
 
-  const handleCreateRequest = (data: Omit<Request, "id" | "createdAt" | "updatedAt">) => {
+  const handleCreateRequest = (data: Omit<Request, "id" | "createdAt">) => {
     dispatch(createRequest(data));
   };
 
