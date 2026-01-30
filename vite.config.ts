@@ -9,7 +9,7 @@ export default defineConfig({
       },
     }),
   ],
-  // base: "/test-task/",
+  base: "/test-task/",
   resolve: {
     alias: {
       app: "/src/app",
